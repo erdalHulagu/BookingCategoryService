@@ -10,7 +10,7 @@ public interface CategoryService {
 
 	Category saveCategory(CategoryRequest categoryRequest, SaloonDTO saloonDTO);
 
-	 Set<Category> getAllCategoriesBySaloonId(Long id);
+	Set<Category> getallCategoriesBySaloonId(Long id);
 
 	Category getCategoryById(Long id);
 	

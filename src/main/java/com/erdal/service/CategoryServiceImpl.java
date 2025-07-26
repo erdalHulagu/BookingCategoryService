@@ -34,9 +34,10 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 
 	@Override
-    public Set<Category> getAllCategoriesBySaloonId(Long id) {
-        return categoryRepository.findAllBySaloonId(id);
-    }
+	public Set<Category> getallCategoriesBySaloonId(Long id) {
+		Set<Category> categories=categoryRepository.findAllBySaloonId(id);
+		return categories;
+	}
 
 	@Override
 	public Category getCategoryById(Long id) {
@@ -47,11 +48,11 @@ public class CategoryServiceImpl implements CategoryService {
 	@Override
 	public void deleteCategoryById(Long categoryId,Long saloonId) {
 		Category category=findCategoryById(categoryId);
-		if (category.getSaloonId().equals(saloonId)) {
-			categoryRepository.deleteById(category.getId());
+		if (category.getSaloonId()!=(saloonId)) {
 			
+			throw new CategoryBadRequestExeption(CategoryErrorMessages.NO_PERMIT_FOR_THIS_USER);
 		}
-		throw new CategoryBadRequestExeption(String.format(CategoryErrorMessages.NO_PERMIT_FOR_THIS_USER, null));
+		categoryRepository.deleteById(categoryId);
 	}
 
 //------------ CLASS METHODS

@@ -40,7 +40,7 @@ public class SaloonCategoryController {
 			return  ResponseEntity.ok(categoryDTO);
 
 		}
-		@DeleteMapping
+		@DeleteMapping("{id}")
 		public ResponseEntity<CategoryResponse> deleteCategory(@PathVariable Long id ) {
 			
 			SaloonDTO saloonDTO=new SaloonDTO();
