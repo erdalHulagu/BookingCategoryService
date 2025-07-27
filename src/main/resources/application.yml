@@ -25,7 +25,7 @@ spring:
 info:
  application: 
   name: 'category service' 
-  description: 'This is a category micro service for saloon booking system'
+  description: 'This is a category microservice for saloon booking system'
   version: '@project.version@' 
    
 
